@@ -54,11 +54,11 @@ public class Exercise28_03 {
     while (stack.empty() != true) {
       stack.peek();
       
-      if (size.neighbors.get(x) == 0) {
+      if (size.neighbors.get(vertecies(i)) == 0) {
         stack.pop();
       }
       else {
-        for (int i = size of vertices in x's neighbor list and count towards 0) {
+        for (int j = neightbors.get(vertecies(i)); j > 0; j--) {
           grab Edge at index i, call e
           remove ending vertex from x's neighbor list
           
@@ -73,5 +73,5 @@ public class Exercise28_03 {
       }
     return new SearchTree(v, parent, searchOrder);
   }
-          
+  }
 }
