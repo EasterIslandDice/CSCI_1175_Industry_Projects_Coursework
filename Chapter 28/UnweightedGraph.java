@@ -91,10 +91,33 @@ public class UnweightedGraph<V> implements Graph<V> {
 		// Used to keep track of vertices left to track
 		Stack<Integer> stack = new Stack<>();
 		
-		// Insert your code here
+		stack.push(v);
+		searchOrder.add(v);
+		isVisited[v] = true;
 		
+		while (!stack.empty()) {
+		int x = stack.peek();
+		if (neighbors.get(x).size() == 0) {
+		stack.pop();
+		}
+		else {
+		for (int i = neighbors.get(x).size() - 1; i >= 0; i--) {
+		Edge e = neighbors.get(x).get(i);
+		neighbors.get(x).remove(i);
+			
+		if (isVisited[e.v] == false) {
+		parent[e.v] = x;
+		stack.push(e.v);
+		isVisited[e.v] = true;
+		searchOrder.add(e.v);
+		break;
+					}
+				}
+			}
+		}
 		return new SearchTree(v, parent, searchOrder);
 	}
+
 
 	/** Create adjacency lists for each vertex */
 	private void createAdjacencyLists(

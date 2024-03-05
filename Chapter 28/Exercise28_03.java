@@ -39,39 +39,4 @@ public class Exercise28_03 {
         System.out.println("parent of " + graph.getVertex(i) + " is " + graph.getVertex(dfs.getParent(i)));
   }
   
-  public SearchTree dfsNonRecurs(int v) {
-    int[] parent = new int[vertices.size()];
-    for (int i = 0; i < parent.length; i++)
-      parent[i] = -1;
-    boolean[] isVisited = new boolean[vertices.size()];
-    List<Integer> searchOrder = new ArrayList<>();
-    Stack<Integer> stack = new Stack<>();
-    
-    stack.push(vertecies[i]);
-    searchOrder(i) = vertecies[i];
-    isVisited[i] = true;
-    
-    while (stack.empty() != true) {
-      stack.peek();
-      
-      if (size.neighbors.get(vertecies(i)) == 0) {
-        stack.pop();
-      }
-      else {
-        for (int j = neightbors.get(vertecies(i)); j > 0; j--) {
-          grab Edge at index i, call e
-          remove ending vertex from x's neighbor list
-          
-          if (ending vertex of e is not visited) {
-            mark parent of ending vertex as x
-            push ending vertex onto stack
-            mark ending vertex as visited
-            add ending vertex to search order
-            break;
-          }
-        }
-      }
-    return new SearchTree(v, parent, searchOrder);
   }
-  }
-}
