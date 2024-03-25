@@ -1,0 +1,9 @@
+.circle {
+	-fx-fill: white;
+	-fx-stroke: black;
+}
+
+.line {
+	-fx-stroke: black;
+	-fx-line-width: 5;
+}
