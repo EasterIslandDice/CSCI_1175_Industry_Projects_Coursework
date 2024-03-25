@@ -8,20 +8,35 @@ import javafx.stage.Stage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.image.Image;
 import javafx.scene.shape.Line;
 import javafx.scene.layout.Pane;
+import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import java.lang.*;
 import java.util.*;
 
 public class StartScreen extends Application {
 	@Override
 	public void start(Stage startScreenStage){
 		
-		Button btStart = new Button("Start Game");
+		//Buttons will pull from text files and create an array.
+		Button btStart5 = new Button("Start 5-Letter Game");
+		Button btStart6 = new Button("Start 6-Letter Game");
+		Button btStart7 = new Button("Start 7-Letter Game");
 		StackPane pane = new StackPane();
-		pane.getChildren().add(btStart);
-		Scene sceneStart = new Scene(pane, 400, 600);
+		HBox btBox = new HBox();
+		btBox.getChildren().addAll(btStart5, btStart6, btStart7);
+		pane.getChildren().addAll(btBox);
+		btBox.setAlignment(Pos.BOTTOM_CENTER);
+		
+		//Placeholder methods
+		btStart5.setOnAction(e -> MainGame.startGame());
+		btStart6.setOnAction(e -> MainGame.startGame());
+		btStart7.setOnAction(e -> MainGame.startGame());
+		
+		Scene sceneStart = new Scene(pane, 800, 500);
 		startScreenStage.setTitle("Hangman");
 		startScreenStage.setScene(sceneStart);
 		startScreenStage.show();
