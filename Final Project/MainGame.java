@@ -77,7 +77,18 @@ public class MainGame extends Application {
 	
 		return chosenWord;
 }
-	public static void startgame(){
-		
+	public static void startgame(String word){
+		int numLet = word.length();
+		switch (numLet) {
+			case 5:
+				lt6.setVisible(false);
+				lt7.setVisible(false);
+				break;
+			case 6:
+				lt7.setVisible(false);
+				break;
+			case 7:
+				break;
+		}
 	}
 }

@@ -34,9 +34,9 @@ public class StartScreen extends Application {
 		Scanner textInput = new Scanner(System.in);
 		
 		//Placeholder methods
-		btStart5.setOnAction(e -> MainGame.startGame(int 5));
-		btStart6.setOnAction(e -> MainGame.startGame(int 6));
-		btStart7.setOnAction(e -> MainGame.startGame(int 7));
+		btStart5.setOnAction(e -> MainGame.startGame(MainGame.chooseWord(FiveLetter.txt)));
+		btStart6.setOnAction(e -> MainGame.startGame(MainGame.chooseWord(SixLetter.txt)));
+		btStart7.setOnAction(e -> MainGame.startGame(MainGame.chooseWord(SevenLetter.txt)));
 		
 		Scene sceneStart = new Scene(pane, 800, 500);
 		startScreenStage.setTitle("Hangman");
