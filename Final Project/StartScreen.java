@@ -31,10 +31,12 @@ public class StartScreen extends Application {
 		pane.getChildren().addAll(btBox);
 		btBox.setAlignment(Pos.BOTTOM_CENTER);
 		
+		Scanner textInput = new Scanner(System.in);
+		
 		//Placeholder methods
-		btStart5.setOnAction(e -> MainGame.startGame());
-		btStart6.setOnAction(e -> MainGame.startGame());
-		btStart7.setOnAction(e -> MainGame.startGame());
+		btStart5.setOnAction(e -> MainGame.startGame(int 5));
+		btStart6.setOnAction(e -> MainGame.startGame(int 6));
+		btStart7.setOnAction(e -> MainGame.startGame(int 7));
 		
 		Scene sceneStart = new Scene(pane, 800, 500);
 		startScreenStage.setTitle("Hangman");
