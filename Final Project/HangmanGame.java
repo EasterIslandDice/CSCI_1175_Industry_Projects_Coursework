@@ -192,7 +192,8 @@ public class HangmanGame extends Application {
 			rt.setOnFinished(event -> text.setVisible(true));
 			rt.play();
 		}
-		
+		public boolean isEqualTo(char other) {
+            return text.getText().equals(String.valueOf(other).toUpperCase());
 		
 	
 	
@@ -220,7 +221,7 @@ public class HangmanGame extends Application {
 			
 			for (Node n : letters){
 				Letter letter = (Letter) n;
-				if(letter.equals(pressed)){
+				if(letter.isEqualTo(pressed)){
 					found = true;
 					score.set(score.get() + wordPoints);
 					lettersToGuess.set(lettersToGuess.get() - 1);
