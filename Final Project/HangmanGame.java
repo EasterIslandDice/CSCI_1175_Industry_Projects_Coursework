@@ -1,3 +1,4 @@
+import java.lang.Object;
 import java.util.HashMap;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
@@ -29,8 +30,6 @@ import javafx.util.Duration;
 public class HangmanGame extends Application {
 	
 	private static final int wordPoints = 100;
-	private static final int completionBonus = 2;
-	
 	private SimpleStringProperty chosenWord = new SimpleStringProperty();
 	private SimpleIntegerProperty lettersToGuess = new SimpleIntegerProperty();
 	private SimpleIntegerProperty score = new SimpleIntegerProperty();
@@ -38,6 +37,7 @@ public class HangmanGame extends Application {
 	private ObservableList<Node> letters;
 	private HashMap<Character,Text> alphabet = new HashMap<Character, Text>();
 	private HangmanImage hangman = new HangmanImage();
+	WordImport words = new WordImport();
 	
 	public Parent GameLayout() {
 		HBox rowLetters = new HBox();
@@ -70,9 +70,9 @@ public class HangmanGame extends Application {
 			alphabet.put(c, t);
 			alphabetGuess.getChildren().add(t);
 		}
-		Text cross = new Text("-");
-		alphabet.put("-", cross);
-		alphabetGuess.getChildren().add(cross);
+		Text hyphen = new Text("-");
+		alphabet.put('-', hyphen);
+		alphabetGuess.getChildren().add(hyphen);
 		
 		Text scoreDisplay = new Text();
 		scoreDisplay.textProperty().bind(score.asString().concat(" Points"));
@@ -89,7 +89,7 @@ public class HangmanGame extends Application {
 		private void StopGame() {
 			for(Node n : letters){
 				Letter letter = (Letter) n;
-				letter.show();
+				letter.Show();
 			}
 		}
 		
@@ -100,7 +100,7 @@ public class HangmanGame extends Application {
 			}
 			
 		hangman.reset();
-		chosenWord.set(WordImport.GetRandomWord().toUpperCase());
+		chosenWord.set(words.GetRandomWord().toUpperCase());
 		lettersToGuess.set(chosenWord.length().get());
 		
 		letters.clear();
@@ -173,7 +173,7 @@ public class HangmanGame extends Application {
 		private Rectangle bg = new Rectangle(60, 60);
 		private Text text;
 		
-		public void Letter(char letter){
+		public Letter(char letter){
 			bg.setFill(letter == ' ' ? Color.BLUE : Color.WHITE);
 			bg.setStroke(Color.PURPLE);
 			
@@ -220,11 +220,11 @@ public class HangmanGame extends Application {
 			
 			for (Node n : letters){
 				Letter letter = (Letter) n;
-				if(letter.isEqualTo(pressed)){
+				if(letter.equals(pressed)){
 					found = true;
 					score.set(score.get() + wordPoints);
 					lettersToGuess.set(lettersToGuess.get() - 1);
-					letter.show();
+					letter.Show();
 				}
 			}
 			
