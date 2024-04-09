@@ -24,7 +24,7 @@ ArrayList<String> wordBank = new ArrayList<String>();
 		if (wordBank.isEmpty())
 			return "No Data";
 			
-		return wordBank.get((int)Math.random() * wordBank.size());
+		return wordBank.get((int)(Math.random() * wordBank.size()));
 	}
 
 }

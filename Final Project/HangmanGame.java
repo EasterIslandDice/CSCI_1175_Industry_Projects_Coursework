@@ -193,11 +193,10 @@ public class HangmanGame extends Application {
 			rt.play();
 		}
 		public boolean isEqualTo(char other) {
-            return text.getText().equals(String.valueOf(other).toUpperCase());
+			return text.getText().equals(String.valueOf(other).toUpperCase());
+		}
 		
-	
-	
-}
+	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Scene scene = new Scene(GameLayout());
@@ -244,3 +243,5 @@ public class HangmanGame extends Application {
 	StartGame();
 	}
 }
+	
+
